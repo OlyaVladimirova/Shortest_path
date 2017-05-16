@@ -14,7 +14,6 @@ public:
     FordFW(Graph *graph);
 
     virtual way getShortestWay(node *a, node *b) override;
-	virtual void showShortestWay(node *a, node *b) override {}
 private:
 
     vector<int> prev;

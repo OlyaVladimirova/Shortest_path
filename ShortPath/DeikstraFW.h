@@ -13,7 +13,6 @@ public:
     DeikstraFW(Graph *graph);
 
     virtual way getShortestWay(node *a, node *b) override;
-	virtual void showShortestWay(node *a, node *b) override {}
 
 private:
 

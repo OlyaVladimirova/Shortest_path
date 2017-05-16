@@ -18,11 +18,15 @@ public:
 
 	typedef pair<list<node *>, int> way;
     virtual way getShortestWay(node *a, node *b) = 0;
-	virtual void showShortestWay(node *a, node *b) = 0;
 
 	ShortestWayFinder(Graph *graph) : graph(graph) {}
-	ShortestWayFinder() = default;
+	//ShortestWayFinder() = default;
+
 	void printShortestWay(way shortest_way) {
+		if (shortest_way.first.empty()) {
+			cout << "Way doesn`t exist\n";
+			return;
+		}
 		ifstream fin("Graph.gv");
 		ofstream fout("Graph_with_shortest_way.gv");
 		while (fin.peek() != '}') {
@@ -30,7 +34,6 @@ public:
 			tmp = fin.get();
 			fout << tmp;
 		}
-		fout << endl;
 		list<node*>::const_iterator it = shortest_way.first.begin();
 		list<node*>::const_iterator it_next = it;
 		it_next++;
@@ -42,8 +45,6 @@ public:
 
 protected:
     Graph* graph;
-
-
 };
 
 
